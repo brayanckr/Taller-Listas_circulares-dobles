@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Circular Photo Gallery</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Circular Photo Gallery</h1>
+    <p>An image carousel backed by a <strong>doubly circular linked list</strong></p>
+  </header>
+
+  <main class="layout">
+    <section class="panel viewer-panel" aria-label="Photo viewer">
+      <div class="stage" id="stage">
+        <img id="main-image" alt="" class="stage-image">
+        <div class="stage-empty" id="empty-message" hidden>The gallery is empty. Upload a photo to start.</div>
+      </div>
+      <div class="caption">
+        <div class="caption-text">
+          <h2 id="photo-title">&nbsp;</h2>
+          <p id="photo-description"></p>
+        </div>
+        <span class="counter" id="counter" aria-live="polite">0 / 0</span>
+      </div>
+
+      <div class="controls">
+        <button type="button" id="btn-prev" class="btn">&#9664; Previous</button>
+        <button type="button" id="btn-play" class="btn btn-accent">&#9654; Play</button>
+        <button type="button" id="btn-next" class="btn">Next &#9654;</button>
+        <button type="button" id="btn-direction" class="btn btn-ghost" title="Autoplay direction">Direction: forward &#8594;</button>
+        <label class="speed">Speed
+          <select id="speed">
+            <option value="1500">Fast</option>
+            <option value="3000" selected>Normal</option>
+            <option value="5000">Slow</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="thumbs" id="thumbs" role="listbox" aria-label="Thumbnails"></div>
+    </section>
+
+    <section class="panel viz-panel" aria-label="Data structure visualizer">
+      <div class="panel-head">
+        <h2>Data structure visualizer</h2>
+        <div class="legend">
+          <span><i class="dot dot-next"></i>next_slide</span>
+          <span><i class="dot dot-prev"></i>previous_slide</span>
+          <span><i class="dot dot-head"></i>head</span>
+          <span><i class="dot dot-current"></i>current</span>
+        </div>
+      </div>
+      <svg id="viz" viewBox="0 0 560 560" role="img" aria-label="Doubly circular linked list diagram"></svg>
+      <div class="pointers" id="pointers"></div>
+    </section>
+
+    <section class="panel tools-panel" aria-label="Gallery tools">
+      <div class="tools-grid">
+        <form id="upload-form" class="form">
+          <h2>Add a photo</h2>
+          <label>Title
+            <input type="text" name="title" maxlength="60" required placeholder="e.g. Sunset">
+          </label>
+          <label>Description
+            <textarea name="description" maxlength="300" rows="2" placeholder="Optional"></textarea>
+          </label>
+          <label>Image
+            <input type="file" name="image" accept="image/png,image/jpeg,image/gif,image/webp" required>
+          </label>
+          <label>Insert position
+            <select name="position">
+              <option value="last">At the end (add_last)</option>
+              <option value="first">At the beginning (add_first)</option>
+              <option value="after_current">After the current photo (add_after_current)</option>
+            </select>
+          </label>
+          <button type="submit" class="btn btn-accent">Upload</button>
+        </form>
+
+        <div class="form">
+          <h2>Actions</h2>
+          <button type="button" id="btn-delete" class="btn btn-danger">Delete current photo</button>
+          <button type="button" id="btn-shuffle" class="btn">Shuffle (relink slides)</button>
+
+          <h2 class="spaced">Search by title</h2>
+          <form id="search-form" class="search">
+            <input type="search" id="search-input" placeholder="Type a title..." autocomplete="off">
+            <button type="submit" class="btn">Search</button>
+          </form>
+          <ul class="results" id="results"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="{{ url_for('static', filename='js/visualizer.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

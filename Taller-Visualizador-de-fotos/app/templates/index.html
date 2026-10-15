@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>360° Interactive Product Viewer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <h1>360° Interactive Product Viewer</h1>
+    <p>Powered by a doubly circular linked list of angle frames</p>
+  </header>
+
+  <main class="layout">
+    <!-- 1. Viewer -->
+    <section class="card viewer" aria-labelledby="viewer-title">
+      <div class="viewer-stage">
+        <button id="btn-prev" class="nav-btn" type="button">◀ Previous</button>
+        <figure class="frame">
+          <img id="frame-image" alt="Product angle" src="">
+          <figcaption>
+            <h2 id="frame-title">Loading…</h2>
+            <p id="frame-description"></p>
+            <small id="frame-meta"></small>
+          </figcaption>
+        </figure>
+        <button id="btn-next" class="nav-btn" type="button">Next ▶</button>
+      </div>
+      <p class="hint">Tip: use the ← / → arrow keys to rotate the product.</p>
+    </section>
+
+    <!-- 2. Visualizer -->
+    <section class="card" aria-labelledby="viz-title">
+      <h2 id="viz-title">Data Structure Visualizer</h2>
+      <div class="legend">
+        <span><i class="dot current"></i>Current Frame</span>
+        <span><i class="dot prev"></i>Previous Frame</span>
+        <span><i class="dot next"></i>Next Frame</span>
+        <span><i class="dot other"></i>Other Frame</span>
+        <span><i class="line wrap"></i>Circular link (last ↔ first)</span>
+      </div>
+      <svg id="diagram" viewBox="0 0 700 460" role="img" aria-label="Circular linked list diagram"></svg>
+      <p id="pointer-info" class="pointer-info"></p>
+    </section>
+
+    <!-- 3. CRUD -->
+    <section class="card" aria-labelledby="crud-title">
+      <h2 id="crud-title">Frame Management Panel</h2>
+      <form id="add-form" autocomplete="off">
+        <label>Angle Degree (0–359)
+          <input id="input-angle" type="number" min="0" max="359" step="1" required>
+        </label>
+        <label>Image URL
+          <input id="input-image" type="url" placeholder="https://…" required>
+        </label>
+        <label>Description
+          <input id="input-description" type="text" maxlength="160" required>
+        </label>
+        <button class="primary" type="submit">Add Frame</button>
+      </form>
+      <button id="btn-delete" class="danger" type="button">Delete Current Frame</button>
+      <p id="message" class="message" role="status"></p>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

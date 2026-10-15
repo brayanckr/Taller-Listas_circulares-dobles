@@ -1,0 +1,61 @@
+{
+  "current_id": "52d4b461",
+  "photos": [
+    {
+      "id": "52d4b461",
+      "title": "Sunrise Valley",
+      "description": "Warm light spilling over a quiet valley.",
+      "image_url": "/static/uploads/sample_01.png",
+      "upload_date": "2026-10-15T23:19:43+00:00"
+    },
+    {
+      "id": "c30f1e10",
+      "title": "Ocean Breeze",
+      "description": "Calm blue water under a clear sky.",
+      "image_url": "/static/uploads/sample_02.png",
+      "upload_date": "2026-10-15T23:19:43+00:00"
+    },
+    {
+      "id": "1917ff48",
+      "title": "Pine Forest",
+      "description": "Tall pines in the early morning fog.",
+      "image_url": "/static/uploads/sample_03.png",
+      "upload_date": "2026-10-15T23:19:43+00:00"
+    },
+    {
+      "id": "4ff248ef",
+      "title": "Violet Dusk",
+      "description": "The sky fading into purple after sunset.",
+      "image_url": "/static/uploads/sample_04.png",
+      "upload_date": "2026-10-15T23:19:43+00:00"
+    },
+    {
+      "id": "3b40522a",
+      "title": "Desert Dunes",
+      "description": "Golden dunes stretching to the horizon.",
+      "image_url": "/static/uploads/sample_05.png",
+      "upload_date": "2026-10-15T23:19:43+00:00"
+    },
+    {
+      "id": "44ae86d8",
+      "title": "Arctic Ice",
+      "description": "Pale ice fields under a winter sky.",
+      "image_url": "/static/uploads/sample_06.png",
+      "upload_date": "2026-10-15T23:19:43+00:00"
+    },
+    {
+      "id": "f0e4126d",
+      "title": "Cherry Blossom",
+      "description": "Pink petals falling in a spring garden.",
+      "image_url": "/static/uploads/sample_07.png",
+      "upload_date": "2026-10-15T23:19:43+00:00"
+    },
+    {
+      "id": "d13b582b",
+      "title": "Midnight City",
+      "description": "City lights glowing against the night.",
+      "image_url": "/static/uploads/sample_08.png",
+      "upload_date": "2026-10-15T23:19:43+00:00"
+    }
+  ]
+}
